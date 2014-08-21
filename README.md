@@ -7,7 +7,10 @@ It persists the items list in text file on Android. You don’t need to worry ab
 Features:
 =========
 
-Currently, 1- You can add one item at a time in the todo app. 2- You can modify any existing item by tapping the row. 
+Currently, 
+1- You can add one item at a time in the todo app. 
+2- You can modify any existing item by tapping the row. 
+
 It opens up a new screen with an edit box where you update the item and tap on Save button to update it in the list, 
 as well as it will store in the file. 3- You can delete any row by tap+holding the row little bit longer time. 
 This app will store the updated list in the file.
