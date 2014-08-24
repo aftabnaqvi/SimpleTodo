@@ -121,7 +121,7 @@ public class TodoActivity extends Activity {
     		else if( (data != null) && data.hasExtra(Operation.ADD_ITEM)) {
     			TodoItem todoItem = (TodoItem)data.getSerializableExtra(Operation.ADD_ITEM);
     			if( todoItem != null && !todoItem.getItemSummary().isEmpty() ){
-    				datasource.createItem(todoItem);
+    				todoItem = datasource.createItem(todoItem); // we may need to update id only. needs more investigation.
     				itemsAdapter.addItem(todoItem);
     		    	itemsAdapter.notifyDataSetChanged();
     			}
