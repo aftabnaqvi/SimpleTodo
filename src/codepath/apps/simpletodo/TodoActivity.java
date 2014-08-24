@@ -120,7 +120,7 @@ public class TodoActivity extends Activity {
     		}
     		else if( (data != null) && data.hasExtra(Operation.ADD_ITEM)) {
     			TodoItem todoItem = (TodoItem)data.getSerializableExtra(Operation.ADD_ITEM);
-    			if( todoItem != null ){
+    			if( todoItem != null && !todoItem.getItemSummary().isEmpty() ){
     				datasource.createItem(todoItem);
     				itemsAdapter.addItem(todoItem);
     		    	itemsAdapter.notifyDataSetChanged();
