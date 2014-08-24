@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <TextView
+        android:id="@+id/tvItemSummary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/cbItemStatus"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@+id/tvItemPriority"
+        android:ellipsize="end"
+        android:gravity="bottom|left"
+        android:paddingLeft="2dp"
+        android:paddingRight="2dp"
+        android:paddingTop="10dp"
+        android:text="itemSummary" />
+
+    <TextView
+        android:id="@+id/tvItemDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignRight="@+id/tvItemSummary"
+        android:layout_below="@+id/cbItemStatus"
+        android:ellipsize="end"
+        android:gravity="center_vertical"
+        android:paddingLeft="2dp"
+        android:paddingRight="2dp"
+        android:text="itemDetail"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/tvItemPriority"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/tvItemDetail"
+        android:layout_alignLeft="@+id/cbItemStatus"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/cbItemStatus"
+        android:gravity="center_vertical"
+        android:paddingLeft="2dp"
+        android:paddingRight="2dp"
+        android:text="itemPriority"
+        android:textSize="12sp" />
+
+    <CheckBox
+        android:id="@+id/cbItemStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:checked="false"
+        android:focusable="false"
+        android:gravity="center_vertical|center_horizontal"
+        android:paddingTop="10dp"
+        android:shadowColor="@android:color/holo_green_light" />
+
+</RelativeLayout>

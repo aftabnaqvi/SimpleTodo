@@ -1,0 +1,11 @@
+<TextView  
+    xmlns:android="http://schemas.android.com/apk/res/android"  
+    android:id="@+id/list_header_company_name"  
+    android:layout_width="fill_parent"   
+    android:layout_height="fill_parent"  
+    android:paddingTop="@dimen/lv_header_marginTop" 
+    android:textColor="#333333"
+    android:textStyle="bold"
+    android:textSize="18sp"
+    android:singleLine="true"
+    android:ellipsize="end"/>

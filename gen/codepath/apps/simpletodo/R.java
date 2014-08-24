@@ -20,22 +20,39 @@ public final class R {
          */
         public static final int activity_horizontal_margin=0x7f040000;
         public static final int activity_vertical_margin=0x7f040001;
+        public static final int all_marginLeft=0x7f040006;
+        public static final int all_marginRight=0x7f040007;
+        public static final int button_height=0x7f040002;
+        public static final int button_width=0x7f040003;
+        public static final int lv_header_marginBottom=0x7f040005;
+        public static final int lv_header_marginTop=0x7f040004;
     }
     public static final class drawable {
         public static final int ic_launcher=0x7f020000;
+        public static final int nice_button_enable=0x7f020001;
+        public static final int solid_color_shape=0x7f020002;
     }
     public static final class id {
-        public static final int action_settings=0x7f080006;
-        public static final int btnAddItem=0x7f080005;
-        public static final int btnSave=0x7f080002;
-        public static final int etEditItem=0x7f080001;
-        public static final int etNewItem=0x7f080004;
-        public static final int lvItems=0x7f080003;
-        public static final int tvEditItem=0x7f080000;
+        public static final int action_settings=0x7f08000d;
+        public static final int btnAddItem=0x7f080009;
+        public static final int btnSave=0x7f080007;
+        public static final int cbItemStatus=0x7f08000b;
+        public static final int etItemDetail=0x7f080004;
+        public static final int etItemSummary=0x7f080002;
+        public static final int list_header_company_name=0x7f08000a;
+        public static final int lvItems=0x7f080008;
+        public static final int spinnerItemPriority=0x7f080005;
+        public static final int tvItemDetail=0x7f080003;
+        public static final int tvItemPriority=0x7f08000c;
+        public static final int tvItemSummary=0x7f080001;
+        public static final int tvPriority=0x7f080006;
+        public static final int tvTitle=0x7f080000;
     }
     public static final class layout {
         public static final int activity_edit_item=0x7f030000;
         public static final int activity_todo=0x7f030001;
+        public static final int list_header=0x7f030002;
+        public static final int todo_list=0x7f030003;
     }
     public static final class menu {
         public static final int edit_item=0x7f070000;
@@ -44,12 +61,16 @@ public final class R {
     public static final class string {
         public static final int action_settings=0x7f050002;
         public static final int add=0x7f050003;
+        public static final int add_item=0x7f05000a;
         public static final int add_item_hint=0x7f050004;
         public static final int app_name=0x7f050000;
         public static final int edit_item=0x7f050006;
+        public static final int eidt_item=0x7f050009;
         public static final int hello_world=0x7f050001;
+        public static final int priority_spinner=0x7f050008;
         public static final int save=0x7f050007;
         public static final int title_activity_edit_item=0x7f050005;
+        public static final int update=0x7f05000b;
     }
     public static final class style {
         /** 
@@ -78,5 +99,6 @@ public final class R {
  All customizations that are NOT specific to a particular API-level can go here. 
          */
         public static final int AppTheme=0x7f060001;
+        public static final int NiceButton=0x7f060002;
     }
 }

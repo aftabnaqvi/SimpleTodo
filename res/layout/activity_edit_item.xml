@@ -9,32 +9,81 @@
     tools:context="codepath.apps.simpletodo.EditItem" >
 
     <TextView
-        android:id="@+id/tvEditItem"
+        android:id="@+id/tvTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="26dp"
+        android:gravity="center_vertical|center_horizontal"
         android:text="@string/edit_item" />
 
-    <EditText
-        android:id="@+id/etEditItem"
+    <TextView
+        android:id="@+id/tvItemSummary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tvEditItem"
-        android:layout_marginTop="35dp"
-        android:ems="10"
-        android:inputType="text" >
+        android:layout_alignBaseline="@+id/etItemSummary"
+        android:layout_alignBottom="@+id/etItemSummary"
+        android:text="Item: " />
 
-        <requestFocus />
-    </EditText>
+    <EditText
+        android:id="@+id/etItemSummary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/tvTitle"
+        android:layout_below="@+id/tvTitle"
+        android:layout_marginTop="34dp"
+        android:layout_toRightOf="@+id/tvItemDetail"
+        android:ems="10"
+        android:inputType="text" />
+  <!-- Spinner Element -->
+
+    <TextView
+        android:id="@+id/tvItemDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tvItemSummary"
+        android:layout_below="@+id/etItemSummary"
+        android:layout_marginTop="17dp"
+        android:text="Detail: " />
+
+    <EditText
+        android:id="@+id/etItemDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/tvItemDetail"
+        android:layout_alignLeft="@+id/etItemSummary"
+        android:layout_alignRight="@+id/etItemSummary"
+        android:ems="10"
+        android:inputType="text" />
+
+    <Spinner
+        android:id="@+id/spinnerItemPriority"
+        android:layout_width="120dp"
+        android:layout_height="35dp"
+        android:layout_alignRight="@+id/etItemDetail"
+        android:layout_below="@+id/etItemDetail"
+        android:prompt="@string/priority_spinner" />
+
+    <TextView
+        android:id="@+id/tvPriority"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btnSave"
+        android:layout_alignLeft="@+id/tvItemDetail"
+        android:text="Priority:" />
 
     <Button
         android:id="@+id/btnSave"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/etEditItem"
-        android:layout_marginTop="35dp"
+        style="@style/NiceButton"
+        android:layout_width="@dimen/button_width"
+        android:layout_height="@dimen/button_height"
+        android:layout_alignRight="@+id/spinnerItemPriority"
+        android:layout_below="@+id/spinnerItemPriority"
+        android:layout_marginTop="30dp"
         android:onClick="onSave"
-        android:text="@string/save" />
+        android:text="@string/save"
+        android:textColor="#ffffff" />
 
 </RelativeLayout>
