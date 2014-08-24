@@ -26,19 +26,22 @@ public class EditItemActivity extends Activity implements OnItemSelectedListener
 	private EditText etItemDetail = null;
 	private Spinner spinnerItemPriority = null;
 	private TodoItem todoItem = null;
-	private int prioritySelectedIndex;
+	private String selectedPriority;
 	private String currentOperation;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_edit_item);
 		
 		// Spinner element
-        Spinner spinner = (Spinner) findViewById(R.id.spinnerItemPriority);
+		spinnerItemPriority = (Spinner) findViewById(R.id.spinnerItemPriority);
  
         // Spinner click listener
-        spinner.setOnItemSelectedListener(this);
- 
+		if(spinnerItemPriority != null){
+			spinnerItemPriority.setOnItemSelectedListener(this);
+		}
+		
         // Spinner Drop down elements
         List<String> priorities = new ArrayList<String>();
         priorities.add("High");
@@ -52,37 +55,54 @@ public class EditItemActivity extends Activity implements OnItemSelectedListener
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
  
         // attaching data adapter to spinner
-        spinner.setAdapter(dataAdapter);
+        spinnerItemPriority.setAdapter(dataAdapter);
         TextView tvTitle = (TextView) findViewById(R.id.tvTitle);
         Button btnSave = (Button) findViewById(R.id.btnSave);
         
         etItemSummary = (EditText) findViewById(R.id.etItemSummary);
         etItemDetail = (EditText) findViewById(R.id.etItemDetail);
-        spinnerItemPriority = (Spinner) findViewById(R.id.spinnerItemPriority);
         
         todoItem =  (TodoItem)getIntent().getSerializableExtra(Operation.EDIT_ITEM);
 		if(todoItem != null){
-			tvTitle.setText(getString(R.string.edit_item));
-			btnSave.setText(getString(R.string.update));
+			if(tvTitle != null){
+				tvTitle.setText(getString(R.string.edit_item));
+			}
+			
+			if(btnSave != null){
+				btnSave.setText(getString(R.string.update));
+			}
+			
 			currentOperation = Operation.EDIT_ITEM;
-			etItemSummary.setText(todoItem.getItemSummary());
-			etItemDetail.setText(todoItem.getItemDetail());
-			//spinnerItemPriority.setTag(todoItem.getItemPriority());
-			int spinnerPos = dataAdapter.getPosition(todoItem.getItemPriority());
-			spinnerItemPriority.setSelection(spinnerPos);
+			if(etItemSummary != null){
+				etItemSummary.setText(todoItem.getItemSummary());
+			}
+			
+			if(etItemDetail != null){
+				etItemDetail.setText(todoItem.getItemDetail());
+			}
+
+			if(spinnerItemPriority != null){
+				spinnerItemPriority.setSelection(dataAdapter.getPosition(todoItem.getItemPriority()));
+			}
+			
 			return; // we don't need to check for add now.
 		}
 		else{
-			// error log.. something went wrong.
+			System.out.println("Error: EditItemActivity: onCreate. expecting todoItem for edit.");
 		}
 		
 		todoItem =  (TodoItem)getIntent().getSerializableExtra(Operation.ADD_ITEM);
-		if(todoItem == null){
-			tvTitle.setText(getString(R.string.add_item));
-			btnSave.setText(getString(R.string.add));
+		if(todoItem == null){ // expected null in case of add operation. don't need to check for edit. May need to revisit and clean it. 
+			if(tvTitle != null){
+				tvTitle.setText(getString(R.string.add_item));
+			}
+			if(btnSave != null){
+				btnSave.setText(getString(R.string.add));
+			}
+			
 			currentOperation = Operation.ADD_ITEM;
-			todoItem = new TodoItem();
-			return; // expected null in case of add operation. don't need to check for edit. May need to revisit and clean it. 
+			todoItem = new TodoItem(); // creating a new item here... 
+			return; 
 		}	
 	}
 	
@@ -91,7 +111,7 @@ public class EditItemActivity extends Activity implements OnItemSelectedListener
 		Intent intent = new Intent(this, TodoActivity.class);
 		todoItem.setItemSummary(etItemSummary.getText().toString().trim());
 		todoItem.setItemDetail(etItemDetail.getText().toString().trim());
-		todoItem.setItemPriority(spinnerItemPriority.getItemAtPosition(prioritySelectedIndex).toString().trim());
+		todoItem.setItemPriority(selectedPriority);
 		
 		intent.putExtra(currentOperation, todoItem);
 
@@ -108,13 +128,11 @@ public class EditItemActivity extends Activity implements OnItemSelectedListener
 	public void onItemSelected(AdapterView<?> parent, View view, int position,
 			long id) {
 		// On selecting a spinner item
-        String item = parent.getItemAtPosition(position).toString();
-        prioritySelectedIndex = position;
+		selectedPriority = parent.getItemAtPosition(position).toString();
 	}
 
 	@Override
 	public void onNothingSelected(AdapterView<?> parent) {
 		// TODO Auto-generated method stub
-		
 	}
 }

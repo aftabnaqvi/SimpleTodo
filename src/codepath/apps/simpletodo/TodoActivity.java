@@ -13,7 +13,6 @@ import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemLongClickListener;
-import android.widget.CheckBox;
 import android.widget.ListView;
 
 class Operation{
@@ -26,7 +25,6 @@ public class TodoActivity extends Activity {
 	private ListView lvItems;
 	private int currentListSelectedIndex = -1;
 	private TodoDataSource datasource;
-	private CheckBox cbItemStatus = null;
 	
 	private static final int REQUEST_CODE = 100;
     @Override
