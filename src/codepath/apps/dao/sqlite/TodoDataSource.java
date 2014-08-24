@@ -18,14 +18,17 @@ public class TodoDataSource {
 
 	  public TodoDataSource(Context context) {
 		  dbHelper = new SQLiteHelper(context);
+		  System.out.println("TodoDataSource: TodoDataSource");
 	  }
 
 	  public void open() throws SQLException {
 		  database = dbHelper.getWritableDatabase();
+		  System.out.println("TodoDataSource: open");
 	  }
 
 	  public void close() {
 		  dbHelper.close();
+		  System.out.println("TodoDataSource: close");
 	  }
 		
 	  public TodoItem createItem(String itemSummary, String itemDetail, String itemPriority, int itemStatus) {
@@ -65,6 +68,7 @@ public class TodoDataSource {
 		  TodoItem newTodo = cursorToTodoItem(cursor);
 		  cursor.close();
 		  
+		  System.out.println("TodoDataSource: New item created with id: " + newTodo.getId());
 		  return newTodo;
 	  }
 	  
@@ -73,6 +77,7 @@ public class TodoDataSource {
 	    System.out.println("item deleted with id: " + id);
 	    database.delete(SQLiteHelper.TABLE_TODO, SQLiteHelper.COL_ITEM_ID
 	        + " = " + id, null);
+	    System.out.println("TodoDataSource: Item deleted for id: " + todo.getId());
 	  }
 
 	  public void updateItem(TodoItem todo) {
@@ -85,6 +90,7 @@ public class TodoDataSource {
 		  values.put(SQLiteHelper.COL_ITEM_STATUS, todo.getItemStatus());
 		  
 	    database.update(SQLiteHelper.TABLE_TODO, values, SQLiteHelper.COL_ITEM_ID + " = " + todo.getId(), null);
+	    System.out.println("TodoDataSource: Item updated for id: " + todo.getId());
 	  }
 	  
 	  public ArrayList<TodoItem> getAllTodos() {
@@ -101,6 +107,8 @@ public class TodoDataSource {
 	    }
 	    // make sure to close the cursor
 	    cursor.close();
+	    
+	    System.out.println("TodoDataSource: Total Items loaded from database: " + allTodoItems.size());
 	    return allTodoItems;
 	  }
 

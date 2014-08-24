@@ -2,7 +2,7 @@ package codepath.apps.dao.sqlite;
 
 import java.io.Serializable;
 
-public class TodoItem implements Serializable, Comparable{
+public class TodoItem implements Serializable, Comparable<TodoItem>{
 	/**
 	 * 
 	 */
@@ -85,7 +85,7 @@ public class TodoItem implements Serializable, Comparable{
 	}
 	
 	@Override
-	public int compareTo(Object another) {
+	public int compareTo(TodoItem another) {
 		if (another instanceof TodoItem){
 			TodoItem anotherTodoItem = (TodoItem)another;
 			if( anotherTodoItem.itemPriority.compareToIgnoreCase(itemPriority) == 0) {

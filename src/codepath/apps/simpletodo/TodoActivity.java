@@ -115,7 +115,7 @@ public class TodoActivity extends Activity {
     		    	itemsAdapter.notifyDataSetChanged();
     			}
     			else{
-    				// log error...
+    				System.out.println("Error: TodoActivity: onActivityResult: item is not updated");
     			}
     		}
     		else if( (data != null) && data.hasExtra(Operation.ADD_ITEM)) {
@@ -126,7 +126,7 @@ public class TodoActivity extends Activity {
     		    	itemsAdapter.notifyDataSetChanged();
     			}
     			else{
-    				// log error...
+    				System.out.println("Error: TodoActivity: onActivityResult: item not added");
     			}	
     		}
     	}

@@ -34,10 +34,12 @@ public class SQLiteHelper extends SQLiteOpenHelper {
 	public void onCreate(SQLiteDatabase database) {
 		
 		database.execSQL(DATABASE_CREATE);
+		System.out.println("SQLiteHelper: onCreate");
 	}
 
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+		System.out.println("SQLiteHelper: onUpgrade");
 		Log.w(SQLiteHelper.class.getName(),
 				"Upgrading database from version " + oldVersion + " to "
 						+ newVersion + ", which will destroy all old data");
