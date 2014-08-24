@@ -26,12 +26,36 @@ Activities used:
 I developed two Activities. 
 
 1- TodoActivity - Responsible for main activity which displays the list of items, you can add, modify and delete the item. 
-2- EditItemActivity - responsible for updating the selected item.
+2- EditItemActivity - responsible for updating the selected item. Using EditItemActivity for adding a new item too. (Not a clean way but need to change this class to cleanly support both operations)
 
 Helper classes:
 ===============
 ItemData is a helper class which is responsible for passing the data to/from TodoActivity/EditItemActivity using intents.
 
+SQLite:
+=======
+
+Added support for SQLite databse. Currenlty, I have only one table todo which stores all the detials about Todo item (id, summary, detail, staus and priority).
+
+Newly added features:
+=====================
+Added support for priority. It manages the priority now.
+Added additional attributes in the listView like item details, display priority and a check box which can tell todo item is completed or not.
+Added support for the SQLite. todo list is persisted all the times, including its completed status.
+
 Future Improvement:
 ===================
-Planning to use SQLite database in future to maintain the list. Also, polish the UI little bit more.
+Try adding a background color of the completed todo items but there was some bug, comment the code for now, revisit it later on. 
+Reused the edit_item activity to add an item as well. (Need some clean up there.)
+Improve the performance. e.g. if user edit any todo item, and goes in edit activity, it shouldn't store data if its not modified. It will improve the perforce/battary life of the device. 
+
+More testing is required too. Specially SQLite database operations related.
+
+Adding support for Unit Testing:
+================================
+Need to figure out, how can I enable support for unit testing? currently, I have no idea about Android based unit testing.
+
+
+Known Bugs:
+===========
+Currently, I have sorting bug based on priority. I need to change the priority's data type in the database, currently, it is a string, I think, I should keep it as an integer in SQLite database.  
