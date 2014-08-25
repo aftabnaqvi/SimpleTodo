@@ -49,13 +49,10 @@ Try adding a background color of the completed todo items but there was some bug
 Reused the edit_item activity to add an item as well. (Need some clean up there.)
 Improve the performance. e.g. if user edit any todo item, and goes in edit activity, it shouldn't store data if its not modified. It will improve the perforce/battary life of the device. 
 
+Need to store the priority as an integer in SQLite databse to avoid extra over head.
+
 More testing is required too. Specially SQLite database operations related.
 
 Adding support for Unit Testing:
 ================================
 Need to figure out, how can I enable support for unit testing? currently, I have no idea about Android based unit testing.
-
-
-Known Bugs:
-===========
-Currently, I have sorting bug based on priority. I need to change the priority's data type in the database, currently, it is a string, I think, I should keep it as an integer in SQLite database.  
