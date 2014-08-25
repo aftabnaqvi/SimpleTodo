@@ -1,6 +1,7 @@
 package codepath.apps.dao.sqlite;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -107,6 +108,9 @@ public class TodoDataSource {
 	    }
 	    // make sure to close the cursor
 	    cursor.close();
+	    
+	    Collections.sort(allTodoItems); // sorting is required here...Not a good sol (performance impact.). BUT only good solution, seems like change the itemPriority 
+	    // type to int in database.
 	    
 	    System.out.println("TodoDataSource: Total Items loaded from database: " + allTodoItems.size());
 	    return allTodoItems;

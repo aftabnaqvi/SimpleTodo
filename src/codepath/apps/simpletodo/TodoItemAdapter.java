@@ -90,6 +90,7 @@ import android.widget.TextView;
 			if (tvItemSummary != null){
 				tvItemSummary.setText(todoItem.getItemSummary());
 			}
+			
 			if(cbItemStatus != null){
 				boolean itemStatus = todoItem.getItemStatus();
 //				if(itemStatus == true){
@@ -100,9 +101,11 @@ import android.widget.TextView;
 //				}
 				cbItemStatus.setChecked(itemStatus);
 			}
+			
 			if (tvItemPriority != null){
 				tvItemPriority.setText(todoItem.getItemPriority());
 			}
+			
 			if (tvItemDetail != null){
 				tvItemDetail.setText(todoItem.getItemDetail());
 			}

@@ -82,7 +82,8 @@ public class EditItemActivity extends Activity implements OnItemSelectedListener
 			}
 
 			if(spinnerItemPriority != null){
-				spinnerItemPriority.setSelection(dataAdapter.getPosition(todoItem.getItemPriority()));
+				//spinnerItemPriority.setSelection(dataAdapter.getPosition(todoItem.getItemPriority()));
+				spinnerItemPriority.setSelection(todoItem.getItemPriorityInt());
 			}
 			
 			return; // we don't need to check for add now.

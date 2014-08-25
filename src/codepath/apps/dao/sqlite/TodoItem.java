@@ -11,7 +11,9 @@ public class TodoItem implements Serializable, Comparable<TodoItem>{
 	private String itemSummary;
 	private String itemDetail;
 	private String itemPriority;
+	private int itemPriorityInt;
 	private boolean itemStatus;
+	
 	public TodoItem() {
 		
 	}
@@ -63,10 +65,27 @@ public class TodoItem implements Serializable, Comparable<TodoItem>{
 	}
 	
 	/**
+	 * @return the itemPriorityInt: returns int version of Priority.
+	 * Might be removed when we will change the priority in database.
+	 */
+	public int getItemPriorityInt() {
+		return itemPriorityInt;
+	}
+	
+	/**
 	 * @param itemPriority the itemPriority to set
 	 */
 	public void setItemPriority(String itemPriority) {
 		this.itemPriority = itemPriority;
+		if("High".compareToIgnoreCase(itemPriority) == 0){
+			this.itemPriorityInt = 0;
+		}
+		else if("Med".compareToIgnoreCase(itemPriority) == 0){
+			this.itemPriorityInt = 1;
+		}
+		else if("Low".compareToIgnoreCase(itemPriority) == 0){
+			this.itemPriorityInt = 2;
+		}
 	}
 	
 	/**
@@ -88,16 +107,17 @@ public class TodoItem implements Serializable, Comparable<TodoItem>{
 	public int compareTo(TodoItem another) {
 		if (another instanceof TodoItem){
 			TodoItem anotherTodoItem = (TodoItem)another;
-			if( anotherTodoItem.itemPriority.compareToIgnoreCase(itemPriority) == 0) {
+			if(itemPriorityInt == anotherTodoItem.itemPriorityInt){
 				return 0;
 			}
-			else if(itemPriority.compareToIgnoreCase(anotherTodoItem.itemPriority) > 0){
+			else if(itemPriorityInt > anotherTodoItem.itemPriorityInt){
 				return 1;
 			}
-			else{
+			else if(itemPriorityInt < anotherTodoItem.itemPriorityInt){
 				return -1;
 			}
 		}
+
 		return 0;
 	}
 }
