@@ -125,6 +125,10 @@ public class EditItemActivity extends Activity implements OnItemSelectedListener
 		finish();
 	}
 
+	public void onCancel(View v){
+		super.finish();
+	}
+	
 	@Override
 	public void onItemSelected(AdapterView<?> parent, View view, int position,
 			long id) {

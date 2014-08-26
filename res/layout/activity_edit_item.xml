@@ -86,4 +86,17 @@
         android:text="@string/save"
         android:textColor="#ffffff" />
 
+    <Button
+        android:id="@+id/btnCancel"
+        style="@style/NiceButton"
+        android:layout_width="@dimen/button_width"
+        android:layout_height="@dimen/button_height"
+        android:layout_alignBaseline="@+id/btnSave"
+        android:layout_alignBottom="@+id/btnSave"
+        android:layout_marginRight="19dp"
+        android:layout_toLeftOf="@+id/btnSave"
+        android:onClick="onCancel"
+        android:text="@string/cancel"
+        android:textColor="#ffffff" />
+
 </RelativeLayout>
