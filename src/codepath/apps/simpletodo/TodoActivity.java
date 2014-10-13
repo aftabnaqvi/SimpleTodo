@@ -94,7 +94,7 @@ public class TodoActivity extends Activity {
 		intent.putExtra (Operation.ADD_ITEM, todoItem);
 		
 		//identify the callback via this code
-		startActivityForResult(intent, REQUEST_CODE);
+		startActivityForResult(intent, REQUEST_CODE); 
 
     	// improvement.
     	// We should select the row if we find that item already exists in the listView.

@@ -24,13 +24,15 @@ public final class R {
         public static final int all_marginRight=0x7f040007;
         public static final int button_height=0x7f040002;
         public static final int button_width=0x7f040003;
+        public static final int corner_radius=0x7f040008;
         public static final int lv_header_marginBottom=0x7f040005;
         public static final int lv_header_marginTop=0x7f040004;
     }
     public static final class drawable {
-        public static final int ic_launcher=0x7f020000;
-        public static final int nice_button_enable=0x7f020001;
-        public static final int solid_color_shape=0x7f020002;
+        public static final int cool_button_background=0x7f020000;
+        public static final int ic_launcher=0x7f020001;
+        public static final int nice_button_enable=0x7f020002;
+        public static final int solid_color_shape=0x7f020003;
     }
     public static final class id {
         public static final int action_settings=0x7f08000e;

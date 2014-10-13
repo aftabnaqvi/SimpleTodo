@@ -9,6 +9,8 @@
     <dimen name="lv_header_marginBottom">10dp</dimen>
     <dimen name="all_marginLeft">10dp</dimen>
     <dimen name="all_marginRight">10dp</dimen>
+    <dimen name="corner_radius">2dp</dimen>
+    
 
     
 </resources>
